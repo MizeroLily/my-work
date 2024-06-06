@@ -1,0 +1,102 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --secondary-background: #111212;
+    --background-color: #040607ec;
+    --primary-color: #ffffff;
+    --secondary-color: #aeaaaa;
+    --primary-size: 2.5rem;
+    --secondary-size: 1.4rem;
+    font-family: sans-serif;
+
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--background-color) ;
+    color: var(--primary-color);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 1rem;
+
+}
+p{
+    color: var(--secondary-color);
+    font-size: var(--secondary-size);
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    padding: 0.125rem;
+    gap: 0.1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    white-space: nowrap; 
+    justify-content: center;
+    padding-bottom: 2rem;
+
+}
+
+.container div {
+    width: 24%;
+    transition: all  0.3s ease-in-out; 
+    position: relative;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.container div:hover img{
+    filter: grayscale(100%) blur(3.4px);
+    transform: scale(102%);
+}
+
+.caption{
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    width: 80%;
+    position: absolute;
+    left: 1.5rem;
+    bottom: 8rem;
+}
+.caption p{
+    text-align: left;
+    font-size: 0.8rem;
+}
+a{
+    color: #00c3ffe6;
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 1.5rem;
+    text-decoration: none;
+}
+.container div:hover .caption{
+    bottom: 9rem;
+}
+.container div:hover a{
+    visibility: visible;
+}
+
+@media screen  and (width < 640px){
+.container{
+    width: 100%;
+    display: grid; 
+    grid-template-columns: repeat('auto-fit', minmax(180px, 1fr));
+    gap: 0.25rem;
+    overflow-x: hidden;
+}
+.container div{
+    width: 100%;
+}
+.container div img{
+    width: 100%;
+} 
+}
